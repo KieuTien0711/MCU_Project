@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Lịch sử - Hệ thống Smart Farm</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  <script src="firebase-config.js"></script>
+</head>
+<body>
+
+
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <h1>Giám sát</h1>
+      <!-- <p>Hệ thống giám sát</p> -->
+    </div>
+    <nav>
+      <a href="index.html">Trang chính</a>
+      <a href="history.html"  class="active">Lịch sử</a>
+    </nav>
+  </div>
+  
+  
+  
+  <div class="main-content">  
+  <h2 class="history-header">Lịch Sử</h2>
+  </div>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Thời gian</th>
+          <th>Nhiệt độ (°C)</th>
+          <th>Độ ẩm (%)</th>
+          <th>PM2.5 (µg/m³)</th>
+          <th>Quạt</th>
+          <th>Đèn</th>
+          <th>Còi</th>
+        </tr>
+      </thead>
+      <tbody id="historyData"></tbody>
+    </table>
+  </div>
+
+  <div class="pagination">
+    <button id="prevPage">Previous</button>
+    <span id="pageInfo">Page 1</span>
+    <button id="nextPage">Next</button>
+
+    <select id="rowsPerPage">
+      <option value="5" selected>5</option>
+      <option value="10">10</option>
+      <option value="20">20</option>
+    </select>
+    <span>rows per page</span>
+
+    <button id="clearHistory">Xóa Lịch Sử</button>
+  </div>
+      <!-- Firebase config và Script JS -->
+  <script src="firebase-config.js"></script>
+  <script src="script_history.js"></script>
+  <script src="script_index.js"></script>
+</body>
+</html>

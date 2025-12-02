@@ -1,0 +1,52 @@
+Vi điều khiển: ESP32 NodeMCU LuaNode32 CP2102 Module Thu Phát Wifi 30 Chân Type C
+
+Các cảm biến dùng:
+GP2Y1014AU Cảm Biến Bụi PM2.5: đo nồng độ pm2.5 (ug/m3)
+Nguyên lý hoạt động: http://arduino.vn/tutorial/6073-su-dung-cam-bien-bui-sharp-gp2y10
+Ứng Dụng Bộ Lọc Kalman vào Đo Nồng Độ PM2.5: https://www.youtube.com/watch?v=Ol9iei1vbjY&t=201s
+datasheet: https://datasheet.lcsc.com/lcsc/1912111437_Sharp-Microelectronics-GP2Y1014AU0F_C390729.pdf
+
+DHT11 cảm biến nhiệt độ: đo nhiệt độ (độ C), độ ẩm (%) 
+Nguyên lý hoạt động: https://mecsu.vn/ho-tro-ky-thuat/dht11-cam-bien-nhiet-do-va-do-am.0j8
+datasheet: https://www.mouser.com/datasheet/2/758/DHT11-Technical-Data-Sheet-Translated-Version-1143054.pdf?srsltid=AfmBOoom2JUvAtOBhsaPxPcZ9b57WEzIBTEe8ms3cM8kZQQeFI7gnF05
+
+MQ-135 Mạch Cảm Biến Chất Lượng Không Khí: đo nồng độ CO2 (ppm)
+Nguyên lý hoạt động: https://mecsu.vn/ho-tro-ky-thuat/mq135-cam-bien-khi-cho-chat-luong-khong-khi.maw
+Cách sử dụng: https://www.codrey.com/electronic-circuits/how-to-use-mq-135-gas-sensor/
+datasheet: https://www.olimex.com/Products/Components/Sensors/Gas/SNS-MQ135/resources/SNS-MQ135.pdf
+
+Thông số tiêu chuẩn Co2 và nồng độ bụi pm 2.5:
+MQ-135 (Co2): link tham khảo: https://www.co2meter.com/blogs/news/carbon-dioxide-indoor-levels-chart
+
+GP2Y1014AU (pm 2.5)
+https://boneco.vn/chi-so-bui-min-pm-25-pm10-bao-nhieu-la-an-toan-cho-suc-khoe-322.html
+
+
+Thiết bị điều khiển:
+Còi báo: 1209 Buzzer, Còi Chíp 12x9mm 93dB
+Quạt: Quạt 4010 12VDC 40x40x10mm
+Led: LED thanh 5V kích thước 85*12mm (dùng để chiếu sáng)
+
+mạch để điều khiển thiết bị: TB6612 Mạch Điều Khiển Động Cơ DC 1.2A
+
+Nguồn cấp: 
+Adapter 12v Nguồn Adapter 12V 2A
+Mạch giảm áp DC-DC Buck Mini560 5A: Hạ áp cấp nguồn cho ESP32
+
+Các linh kiện hỗ trợ: 
+Diode chống ngược cực: 1N5822 Diode Schottky 40V 3A DO-201AD
+Điện trở 220 ohm: cho Led
+
+Điện trở 150ohm và Tụ điện 220uF:: dùng cho cảm biến GP2Y1014AU
+  
+Dây nối: 
+KF301-2-V Domino 2 Chân Thẳng 5.08mm 300V 10A Hàn PCB
+Dây Bus XH2.54mm
+
+Phần mềm viết code: 
+Vscode – viết code cho web (ngôn ngữ html, css, javascript)
+Aurduino IDE: Viết code cho ESP32
+Phần mềm thiết kế mạch: Proteus
+Cơ sở lưu trữ dữ liệu (Database): Firebase
+Giao thức truyền thông: Giao tiếp với Firebase Realtime Database qua HTTP REST API (đọc và ghi dữ liệu JSON)
+

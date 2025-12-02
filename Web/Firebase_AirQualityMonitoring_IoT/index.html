@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ Thống Thông Minh</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+</head>
+<body>
+
+  <div class="sidebar">
+    <div class="sidebar-header">
+     <h1>Giám sát</h1>
+      <!-- <p>Hệ thống giám sát</p> -->
+    </div>
+    <nav>
+      <a href="index.html" class="active">Trang chính</a>
+      <a href="history.html">Lịch sử</a>
+    </nav>
+  </div>
+
+
+<div class="main-content">
+    <h1>Hệ Thống Giám Sát Thông Minh</h1>
+    <div id="alert-message"></div>
+    <div class="dashboard">
+        <!-- Phần hiển thị cảm biến -->
+        <div class="sensor">
+            <p>Nhiệt độ: <span id="temperature">--</span>°C</p>
+            <p>Độ ẩm: <span id="humidity">--</span>%</p>
+            <p>Chất lượng không khí: <span id="airquality">--</span></p>
+            <p>Nồng độ PM2.5: <span id="pm25">--</span> µg/m³</p>
+        </div>
+
+        <!-- Phần bật tắt thiết bị và set ngưỡng -->
+        <div class="controls-thresholds">
+            <div class="controls">
+                <h2>Bật / Tắt Thiết Bị</h2>
+                <div class="device-control">
+                    <h3>Quạt</h3>
+                    <button class="device-btn" id="fan-on">Bật Quạt</button>
+                    <button class="device-btn" id="fan-off">Tắt Quạt</button>
+                    <p class="status" id="fan-status">Trạng thái: Tắt</p>
+                </div>
+
+                <div class="device-control">
+                    <h3>Đèn</h3>
+                    <button class="device-btn" id="light-on">Bật Đèn</button>
+                    <button class="device-btn" id="light-off">Tắt Đèn</button>
+                    <p class="status" id="light-status">Trạng thái: Tắt</p>
+                </div>
+
+                <div class="device-control">
+                    <h3>Còi</h3>
+                    <button class="device-btn" id="buzzer-on">Bật Còi</button>
+                    <button class="device-btn" id="buzzer-off">Tắt Còi</button>
+                    <p class="status" id="buzzer-status">Trạng thái: Tắt</p>
+                </div>
+            </div>
+
+            <div class="thresholds">
+                <h2>Set Ngưỡng</h2>
+                <label for="mode-select">Chọn chế độ:</label>
+                <select id="mode-select" name="mode">
+                    <option value="auto" selected>Auto</option>
+                    <option value="manual">Manual</option>
+                </select>
+                <label for="tempthreshold">Ngưỡng Nhiệt Độ:</label>
+                <input type="number" id="tempthreshold" placeholder="Celsius">
+                
+                <label for="humiditythreshold">Ngưỡng Độ Ẩm:</label>
+                <input type="number" id="humiditythreshold" placeholder="%">
+            
+                <label for="pm25threshold">Ngưỡng Nồng Độ Bụi PM2.5:</label>
+                <input type="number" id="pm25threshold" placeholder="µg/m³">
+            </div>
+        </div>
+    </div>
+    
+
+
+
+
+    <footer>
+        <p>© 2025 Hệ thống giám sát thông minh</p>
+    </footer>
+</div>
+
+      <!-- Firebase config và Script JS -->
+  <script src="firebase-config.js"></script>
+  <script src="script_index.js"></script>
+    <script src="script_history.js"></script>
+</body>
+</html>

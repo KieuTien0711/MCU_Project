@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Farm AI - Dự Báo Thông Minh</title>
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.21.0/dist/tf.min.js"></script>
+  
+
+
+
+  <style>
+    body{margin:0;font-family:Arial,sans-serif;background:#0f172a;color:#fff}
+    .header{background:#1e40af;padding:20px;text-align:center;font-size:22px;font-weight:bold}
+    .main{padding:15px}
+    .chart-box{background:rgba(255,255,255,0.1);border-radius:15px;padding:20px;position:relative;margin-bottom:20px}
+    #toggleButton{position:absolute;top:10px;left:10px;background:#10b981;color:#fff;border:none;padding:10px 18px;border-radius:10px;cursor:pointer;font-weight:bold;z-index:10}
+    #toggleButton.paused{background:#ef4444}
+    canvas{width:100%!important;height:380px!important}
+    .forecast{background:linear-gradient(135deg,#1e293b,#0f172a);border-radius:15px;padding:20px;box-shadow:0 8px 32px rgba(0,0,0,0.4)}
+    .forecast h2{font-size:19px;color:#10b981;text-align:center;margin:0 0 15px;text-shadow:0 0 10px #10b981}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}
+    .card{background:rgba(255,255,255,0.08);padding:15px;border-radius:12px;text-align:center;font-size:15px;border-left:6px solid;box-shadow:0 4px 15px rgba(0,0,0,0.3)}
+    .good{border-color:#10b981}.medium{border-color:#f59e0b}.bad{border-color:#ef4444}
+    .loading{text-align:center;padding:50px;color:#60a5fa;font-size:18px}
+    .status{text-align:center;padding:12px;font-size:14px;color:#94a3b8;background:rgba(255,255,255,0.05);border-radius:8px}
+  </style>
+</head>
+<body>
+
+  <div class="header">SMART FARM AI – DỰ BÁO THÔNG MINH TỪ HISTORY</div>
+
+  <div class="main">
+    <div class="chart-box">
+      <button id="toggleButton">Pause</button>
+      <canvas id="realtimeChart"></canvas>
+    </div>
+
+    <div class="forecast" id="aiForecast">
+      <div class="loading">AI đang học từ lịch sử dữ liệu của bạn...</div>
+    </div>
+
+    <div class="status" id="status">Đang kết nối Firebase...</div>
+  </div>
+
+  <script src="firebase-config.js"></script>
+  <script src="script_chart.js"></script>
+</body>
+</html>
